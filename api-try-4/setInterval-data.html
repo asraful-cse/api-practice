@@ -1,0 +1,40 @@
+/*practice one*/
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api practice one</title>
+</head>
+
+<body>
+    <h1 id="activity"> Take a class</h1>
+    <h3>Learn from <a id="explore_link" href="">Visit this place</a></h3>
+
+
+    <script>
+        function doSomething() {
+            fetch('http://www.boredapi.com/api/activity/')    // api ke call kora hoyese.
+                .then(res => res.json())
+                .then(data => {
+                    //console.log(data);
+                    document.getElementById("activity").innerText = data.activity;
+                });
+
+        }
+        doSomething()           // oporer function ke call kora holow.
+
+        setInterval(() => {           // time setup 2000 mane hosse 2sec. por por dekhabe.
+            doSomething();
+        }, 2000);
+
+    </script>
+
+</body>
+
+</html>
